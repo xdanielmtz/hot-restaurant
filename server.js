@@ -1,6 +1,23 @@
 // 1. Require Express
 const express = require("express");
 const path = require("path");
+
+const reservations = [{
+  name: "Daniel",
+  phoneNumber: "213456",
+  email: "daniel@gmail.com",
+  uniqueId: "149512"
+}]
+
+const waitList = [{
+  name: "Daniel",
+  phoneNumber: "213456",
+  email: "daniel@gmail.com",
+  uniqueId: "149512"
+}]
+
+
+
 // 2. Create an instance of Express
 const app = express();
 //=============================================================================================
@@ -13,11 +30,15 @@ app.use(express.json());
 //=============================================================================================
 // VIEW ROUTES
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "/views/home.html"));
+  res.sendFile(path.join(__dirname, "/views/index.html"));
 });
 
 app.get("/tables", (req, res) => {
-  res.sendFile(path.join(__dirname, "/views/tables.html"));
+  res.sendFile(path.join(__dirname, "/views/reservation-views.html"));
+});
+
+app.get("/reserve", (req, res) => {
+  res.sendFile(path.join(__dirname, "/views/reservation.html"));
 });
 //=============================================================================================
 // API ROUTES
