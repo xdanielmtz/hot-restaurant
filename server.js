@@ -48,9 +48,11 @@ app.get("/api/config", (req, res) => {
   });
 });
 
-app.post("api/reservation", (req, res) => {
-  var newTable = req.body;
-  console.log(newTable);
+app.get("/api/tables", (req, res) => {
+  res.json({
+    reservations: reservations,
+    waitList: waitList
+  })
 });
 
 // app.get("/api/donuts", (req, res) => {
